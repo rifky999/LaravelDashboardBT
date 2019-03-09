@@ -16,4 +16,4 @@ Route::get('/', function () {
     return view('welcome',['nama' => $data]);
 });
 
-Route::get('/home','Page@home');
+Route::get('/home','PageController@home');
