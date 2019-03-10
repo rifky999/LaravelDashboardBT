@@ -26,6 +26,9 @@ class AuthController extends Controller
     $response =  fractal()
             ->item($cek)
             ->transformWith(new UserTransformer)
+            ->addMeta([
+                'token' => $cek->api_token
+            ])
             ->toArray();
     
             return response()->json($response, 201);
@@ -45,6 +48,9 @@ class AuthController extends Controller
         return fractal()
                 ->item($user)
                 ->transformWith(new UserTransformer)
+                ->addMeta([
+                    'token' => $user->api_token
+                ])
                 ->toArray();
     }
 }
